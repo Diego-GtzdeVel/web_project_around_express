@@ -19,16 +19,18 @@ router.get('/:_id', (req, res) => {
 
   fs.readFile(usersPath, (err, data) => {
     if (err) {
-      res.status(500).json({ error: 'Error al leer el archivo de usuarios' });
+      res.status(500).json({ error: 'Error del servidor' });
     }
 
     const users = JSON.parse(data);
 
-    if (!users[_id]) {
+    const user = users.find((u) => u._id === _id);
+
+    if (!user) {
       return res.status(404).json({ error: 'Este usuario no existe' });
     }
 
-    return res.json(users[_id]);
+    return res.json(user);
   });
 });
 
