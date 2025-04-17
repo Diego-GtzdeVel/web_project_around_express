@@ -13,13 +13,13 @@ module.exports.getUserById = (req, res) => {
       if (!user) {
         return res.status(404).send({ message: 'Usuario no encontrado' });
       }
-      res.send(user);
+      return res.send(user);
     })
     .catch((err) => {
       if (err.name === 'CastError') {
         return res.status(400).send({ message: 'ID de usuario no válido' });
       }
-      res.status(500).send({ message: 'Error del servidor', error: err.message });
+      return res.status(500).send({ message: 'Error del servidor', error: err.message });
     });
 };
 
@@ -32,6 +32,6 @@ module.exports.createUser = (req, res) => {
       if (err.name === 'ValidationError') {
         return res.status(400).send({ message: 'Datos inválidos al crear el usuario', error: err.message });
       }
-      res.status(500).send({ message: 'Error del servidor', error: err.message });
+      return res.status(500).send({ message: 'Error del servidor', error: err.message });
     });
 };

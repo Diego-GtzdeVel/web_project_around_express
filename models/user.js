@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const urlRegex = /^(https?:\/\/)(www\.)?[\w\-]+(\.[\w\-]+)+([\/\w\-._~:/?#[\]@!$&'()*+,;=]*)#?$/;
+const urlRegex = /^(https?:\/\/)(www\.)?[\w-]+(\.[\w-]+)+([/\w-._~:/?#[\]@!$&'()*+,;=]*)#?$/;
 
 const userSchema = new mongoose.Schema({
   name: {

@@ -13,7 +13,7 @@ mongoose.connect('mongodb://localhost:27017/aroundb');
 
 app.use((req, res, next) => {
   req.user = {
-    _id: '68016c42b245f8ce817eb1c2'
+    _id: '68016c42b245f8ce817eb1c2',
   };
 
   next();
