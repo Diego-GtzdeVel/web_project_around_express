@@ -7,9 +7,7 @@ const SERVER_ERROR_CODE = 500;
 module.exports.getCards = (req, res) => {
   Card.find({})
     .then((cards) => res.send(cards))
-    .catch((err) =>
-      res.status(SERVER_ERROR_CODE).send({ message: 'Error del servidor', error: err.message })
-    );
+    .catch((err) => res.status(SERVER_ERROR_CODE).send({ message: 'Error del servidor', error: err.message }));
 };
 
 module.exports.createCard = (req, res) => {

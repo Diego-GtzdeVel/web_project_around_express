@@ -8,9 +8,7 @@ const SERVER_ERROR_CODE = 500;
 module.exports.getUsers = (req, res) => {
   User.find({})
     .then((users) => res.send(users))
-    .catch((err) =>
-      res.status(SERVER_ERROR_CODE).send({ message: 'Error del servidor', error: err.message })
-    );
+    .catch((err) => res.status(SERVER_ERROR_CODE).send({ message: 'Error del servidor', error: err.message }));
 };
 
 module.exports.getUserById = (req, res) => {
@@ -56,7 +54,7 @@ module.exports.updateUser = (req, res) => {
   User.findByIdAndUpdate(
     req.user._id,
     { name, about },
-    { new: true, runValidators: true }
+    { new: true, runValidators: true },
   )
     .then((user) => res.send(user))
     .catch((err) => {
@@ -77,7 +75,7 @@ module.exports.updateAvatar = (req, res) => {
   User.findByIdAndUpdate(
     req.user._id,
     { avatar },
-    { new: true, runValidators: true }
+    { new: true, runValidators: true },
   )
     .then((user) => res.send(user))
     .catch((err) => {
